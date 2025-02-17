@@ -1,0 +1,161 @@
+30-Jan-2025 15:54:10.197 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.5.24
+30-Jan-2025 15:54:10.199 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 27 2017 13:05:30 UTC
+30-Jan-2025 15:54:10.200 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.5.24.0
+30-Jan-2025 15:54:10.200 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+30-Jan-2025 15:54:10.200 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            3.10.0-1160.el7.x86_64
+30-Jan-2025 15:54:10.200 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+30-Jan-2025 15:54:10.200 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /server/jdk-17.0.13
+30-Jan-2025 15:54:10.200 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.13+10-LTS-268
+30-Jan-2025 15:54:10.200 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+30-Jan-2025 15:54:10.200 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /server/was1/apache-tomcat-8.5.24
+30-Jan-2025 15:54:10.200 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /server/was1/apache-tomcat-8.5.24
+30-Jan-2025 15:54:10.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+30-Jan-2025 15:54:10.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+30-Jan-2025 15:54:10.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/server/was1/apache-tomcat-8.5.24/conf/logging.properties
+30-Jan-2025 15:54:10.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+30-Jan-2025 15:54:10.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+30-Jan-2025 15:54:10.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+30-Jan-2025 15:54:10.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+30-Jan-2025 15:54:10.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/server/was1/apache-tomcat-8.5.24
+30-Jan-2025 15:54:10.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/server/was1/apache-tomcat-8.5.24
+30-Jan-2025 15:54:10.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/server/was1/apache-tomcat-8.5.24/temp
+30-Jan-2025 15:54:10.202 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib]
+30-Jan-2025 15:54:10.220 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-172.30.143.102-8001"]
+30-Jan-2025 15:54:10.255 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+30-Jan-2025 15:54:10.258 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-172.30.143.102-8011"]
+30-Jan-2025 15:54:10.259 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+30-Jan-2025 15:54:10.260 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 549 ms
+30-Jan-2025 15:54:10.282 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+30-Jan-2025 15:54:10.282 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.24
+30-Jan-2025 15:54:10.290 INFO [main] org.apache.catalina.ha.tcp.SimpleTcpCluster.startInternal Cluster is about to start
+30-Jan-2025 15:54:10.298 INFO [main] org.apache.catalina.tribes.transport.ReceiverBase.bind Receiver Server Socket bound to:[/127.0.0.1:4001]
+30-Jan-2025 15:54:10.319 INFO [main] org.apache.catalina.tribes.membership.McastServiceImpl.setupSocket Setting cluster mcast soTimeout to [500]
+30-Jan-2025 15:54:10.322 INFO [main] org.apache.catalina.tribes.membership.McastServiceImpl.waitForMembers Sleeping for [1000] milliseconds to establish cluster membership, start level:[4]
+30-Jan-2025 15:54:11.323 INFO [main] org.apache.catalina.tribes.membership.McastServiceImpl.waitForMembers Done sleeping, membership established, start level:[4]
+30-Jan-2025 15:54:11.325 INFO [main] org.apache.catalina.tribes.membership.McastServiceImpl.waitForMembers Sleeping for [1000] milliseconds to establish cluster membership, start level:[8]
+30-Jan-2025 15:54:12.325 INFO [main] org.apache.catalina.tribes.membership.McastServiceImpl.waitForMembers Done sleeping, membership established, start level:[8]
+30-Jan-2025 15:54:12.327 SEVERE [main] org.apache.catalina.ha.deploy.FarmWarDeployer.start FarmWarDeployer can only work as host cluster subelement!
+30-Jan-2025 15:54:12.342 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/server/was1/apache-tomcat-8.5.24/webapps/ROOT]
+30-Jan-2025 15:54:12.548 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.startInternal Register manager [localhost#] to cluster element [Engine] with name [Catalina]
+30-Jan-2025 15:54:12.548 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.startInternal Starting clustering manager at [localhost#]
+30-Jan-2025 15:54:12.548 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.getAllClusterSessions Manager [localhost#]: skipping state transfer. No members active in cluster group.
+30-Jan-2025 15:54:12.563 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/server/was1/apache-tomcat-8.5.24/webapps/ROOT] has finished in [221] ms
+30-Jan-2025 15:54:12.563 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/server/was1/apache-tomcat-8.5.24/webapps/docs]
+30-Jan-2025 15:54:12.577 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/server/was1/apache-tomcat-8.5.24/webapps/docs] has finished in [14] ms
+30-Jan-2025 15:54:12.578 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/server/was1/apache-tomcat-8.5.24/webapps/examples]
+30-Jan-2025 15:54:12.773 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.startInternal Register manager [localhost#/examples] to cluster element [Engine] with name [Catalina]
+30-Jan-2025 15:54:12.773 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.startInternal Starting clustering manager at [localhost#/examples]
+30-Jan-2025 15:54:12.773 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.getAllClusterSessions Manager [localhost#/examples]: skipping state transfer. No members active in cluster group.
+30-Jan-2025 15:54:12.777 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/server/was1/apache-tomcat-8.5.24/webapps/examples] has finished in [199] ms
+30-Jan-2025 15:54:12.778 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/server/was1/apache-tomcat-8.5.24/webapps/host-manager]
+30-Jan-2025 15:54:12.797 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/server/was1/apache-tomcat-8.5.24/webapps/host-manager] has finished in [19] ms
+30-Jan-2025 15:54:12.797 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/server/was1/apache-tomcat-8.5.24/webapps/manager]
+30-Jan-2025 15:54:12.812 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/server/was1/apache-tomcat-8.5.24/webapps/manager] has finished in [14] ms
+30-Jan-2025 15:54:12.812 INFO [main] org.apache.catalina.ha.session.JvmRouteBinderValve.startInternal JvmRouteBinderValve started
+30-Jan-2025 15:54:12.814 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-172.30.143.102-8001"]
+30-Jan-2025 15:54:12.821 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-172.30.143.102-8011"]
+30-Jan-2025 15:54:12.910 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 2649 ms
+30-Jan-2025 15:54:14.838 INFO [Tribes-Task-Receiver[Catalina-Channel]-1] org.apache.catalina.tribes.io.BufferPool.getBufferPool Created a buffer pool with max size:[104857600] bytes of type: [org.apache.catalina.tribes.io.BufferPool15Impl]
+30-Jan-2025 15:54:15.590 INFO [Membership-MemberAdded.] org.apache.catalina.ha.tcp.SimpleTcpCluster.memberAdded Replication member added:[org.apache.catalina.tribes.membership.MemberImpl[tcp://{127, 0, 0, 1}:4000,{127, 0, 0, 1},4000, alive=1011, securePort=-1, UDP Port=-1, id={-65 81 -89 -87 -70 -56 72 85 -67 -120 -18 -53 -72 87 -106 53 }, payload={}, command={}, domain={}, ]]
+30-Jan-2025 16:00:06.714 WARNING [Tribes-MembershipSender[Catalina-Channel]] org.apache.catalina.tribes.membership.McastServiceImpl$SenderThread.run Unable to send mcast message.
+ java.net.SocketException: 네트워크가 접근 불가능합니다
+	at java.base/sun.nio.ch.DatagramChannelImpl.send0(Native Method)
+	at java.base/sun.nio.ch.DatagramChannelImpl.sendFromNativeBuffer(DatagramChannelImpl.java:901)
+	at java.base/sun.nio.ch.DatagramChannelImpl.send(DatagramChannelImpl.java:863)
+	at java.base/sun.nio.ch.DatagramChannelImpl.send(DatagramChannelImpl.java:821)
+	at java.base/sun.nio.ch.DatagramChannelImpl.blockingSend(DatagramChannelImpl.java:853)
+	at java.base/sun.nio.ch.DatagramSocketAdaptor.send(DatagramSocketAdaptor.java:218)
+	at java.base/java.net.DatagramSocket.send(DatagramSocket.java:664)
+	at org.apache.catalina.tribes.membership.McastServiceImpl.send(McastServiceImpl.java:515)
+	at org.apache.catalina.tribes.membership.McastServiceImpl.send(McastServiceImpl.java:492)
+	at org.apache.catalina.tribes.membership.McastServiceImpl$SenderThread.run(McastServiceImpl.java:592)
+
+30-Jan-2025 16:05:20.582 INFO [Membership-MemberDisappeared.] org.apache.catalina.ha.tcp.SimpleTcpCluster.memberDisappeared Received member disappeared:[org.apache.catalina.tribes.membership.MemberImpl[tcp://{127, 0, 0, 1}:4000,{127, 0, 0, 1},4000, alive=666002, securePort=-1, UDP Port=-1, id={-65 81 -89 -87 -70 -56 72 85 -67 -120 -18 -53 -72 87 -106 53 }, payload={}, command={66 65 66 89 45 65 76 69 88 ...(9)}, domain={}, ]]
+30-Jan-2025 16:05:22.320 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+30-Jan-2025 16:05:22.321 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-172.30.143.102-8001"]
+30-Jan-2025 16:05:23.446 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-172.30.143.102-8011"]
+30-Jan-2025 16:05:25.449 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+30-Jan-2025 16:05:25.449 INFO [main] org.apache.catalina.ha.session.JvmRouteBinderValve.stopInternal JvmRouteBinderValve stopped
+30-Jan-2025 16:05:25.451 INFO [localhost-startStop-2] org.apache.catalina.ha.session.DeltaManager.stopInternal Manager [localhost#] expiring sessions upon shutdown
+30-Jan-2025 16:05:25.456 INFO [localhost-startStop-2] org.apache.catalina.ha.session.DeltaManager.stopInternal Manager [localhost#/examples] expiring sessions upon shutdown
+30-Jan-2025 16:05:25.461 INFO [main] org.apache.catalina.ha.deploy.FarmWarDeployer.stop Cluster FarmWarDeployer stopped.
+30-Jan-2025 16:05:25.564 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-172.30.143.102-8001"]
+30-Jan-2025 16:05:26.442 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-172.30.143.102-8011"]
+30-Jan-2025 16:05:28.471 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-172.30.143.102-8001"]
+30-Jan-2025 16:05:28.471 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-172.30.143.102-8011"]
+30-Jan-2025 16:06:01.689 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.5.24
+30-Jan-2025 16:06:01.691 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 27 2017 13:05:30 UTC
+30-Jan-2025 16:06:01.691 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.5.24.0
+30-Jan-2025 16:06:01.691 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+30-Jan-2025 16:06:01.691 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            3.10.0-1160.el7.x86_64
+30-Jan-2025 16:06:01.691 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+30-Jan-2025 16:06:01.691 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /server/jdk-17.0.13
+30-Jan-2025 16:06:01.691 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.13+10-LTS-268
+30-Jan-2025 16:06:01.691 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+30-Jan-2025 16:06:01.691 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /server/was1/apache-tomcat-8.5.24
+30-Jan-2025 16:06:01.691 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /server/was1/apache-tomcat-8.5.24
+30-Jan-2025 16:06:01.692 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+30-Jan-2025 16:06:01.692 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+30-Jan-2025 16:06:01.692 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/server/was1/apache-tomcat-8.5.24/conf/logging.properties
+30-Jan-2025 16:06:01.692 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+30-Jan-2025 16:06:01.692 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+30-Jan-2025 16:06:01.692 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+30-Jan-2025 16:06:01.692 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+30-Jan-2025 16:06:01.692 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/server/was1/apache-tomcat-8.5.24
+30-Jan-2025 16:06:01.692 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/server/was1/apache-tomcat-8.5.24
+30-Jan-2025 16:06:01.692 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/server/was1/apache-tomcat-8.5.24/temp
+30-Jan-2025 16:06:01.693 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib]
+30-Jan-2025 16:06:01.716 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-172.26.36.102-8001"]
+30-Jan-2025 16:06:01.728 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+30-Jan-2025 16:06:01.733 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-172.26.36.102-8011"]
+30-Jan-2025 16:06:01.735 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+30-Jan-2025 16:06:01.735 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 281 ms
+30-Jan-2025 16:06:01.763 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+30-Jan-2025 16:06:01.764 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.24
+30-Jan-2025 16:06:01.771 INFO [main] org.apache.catalina.ha.tcp.SimpleTcpCluster.startInternal Cluster is about to start
+30-Jan-2025 16:06:01.777 INFO [main] org.apache.catalina.tribes.transport.ReceiverBase.bind Receiver Server Socket bound to:[/127.0.0.1:4001]
+30-Jan-2025 16:06:01.807 INFO [main] org.apache.catalina.tribes.membership.McastServiceImpl.setupSocket Setting cluster mcast soTimeout to [500]
+30-Jan-2025 16:06:01.809 INFO [main] org.apache.catalina.tribes.membership.McastServiceImpl.waitForMembers Sleeping for [1000] milliseconds to establish cluster membership, start level:[4]
+30-Jan-2025 16:06:02.231 INFO [Membership-MemberAdded.] org.apache.catalina.ha.tcp.SimpleTcpCluster.memberAdded Replication member added:[org.apache.catalina.tribes.membership.MemberImpl[tcp://{127, 0, 0, 1}:4000,{127, 0, 0, 1},4000, alive=2509, securePort=-1, UDP Port=-1, id={53 45 45 -114 21 -80 66 -126 -76 -11 85 75 64 -38 -126 106 }, payload={}, command={}, domain={}, ]]
+30-Jan-2025 16:06:02.810 INFO [main] org.apache.catalina.tribes.membership.McastServiceImpl.waitForMembers Done sleeping, membership established, start level:[4]
+30-Jan-2025 16:06:02.812 INFO [main] org.apache.catalina.tribes.membership.McastServiceImpl.waitForMembers Sleeping for [1000] milliseconds to establish cluster membership, start level:[8]
+30-Jan-2025 16:06:02.817 INFO [Tribes-Task-Receiver[Catalina-Channel]-1] org.apache.catalina.tribes.io.BufferPool.getBufferPool Created a buffer pool with max size:[104857600] bytes of type: [org.apache.catalina.tribes.io.BufferPool15Impl]
+30-Jan-2025 16:06:03.813 INFO [main] org.apache.catalina.tribes.membership.McastServiceImpl.waitForMembers Done sleeping, membership established, start level:[8]
+30-Jan-2025 16:06:03.816 SEVERE [main] org.apache.catalina.ha.deploy.FarmWarDeployer.start FarmWarDeployer can only work as host cluster subelement!
+30-Jan-2025 16:06:03.821 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/server/was1/apache-tomcat-8.5.24/webapps/ROOT]
+30-Jan-2025 16:06:03.928 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.startInternal Register manager [localhost#] to cluster element [Engine] with name [Catalina]
+30-Jan-2025 16:06:03.928 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.startInternal Starting clustering manager at [localhost#]
+30-Jan-2025 16:06:03.934 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.getAllClusterSessions Manager [localhost#], requesting session state from [org.apache.catalina.tribes.membership.MemberImpl[tcp://{127, 0, 0, 1}:4000,{127, 0, 0, 1},4000, alive=4011, securePort=-1, UDP Port=-1, id={53 45 45 -114 21 -80 66 -126 -76 -11 85 75 64 -38 -126 106 }, payload={}, command={}, domain={}, ]]. This operation will timeout if no session state has been received within [60] seconds.
+30-Jan-2025 16:06:04.042 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.waitForSendAllSessions Manager [localhost#]; session state send at [1/30/25, 4:06 PM] received in [106] ms.
+30-Jan-2025 16:06:04.048 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/server/was1/apache-tomcat-8.5.24/webapps/ROOT] has finished in [227] ms
+30-Jan-2025 16:06:04.048 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/server/was1/apache-tomcat-8.5.24/webapps/docs]
+30-Jan-2025 16:06:04.057 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/server/was1/apache-tomcat-8.5.24/webapps/docs] has finished in [9] ms
+30-Jan-2025 16:06:04.057 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/server/was1/apache-tomcat-8.5.24/webapps/examples]
+30-Jan-2025 16:06:04.166 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.startInternal Register manager [localhost#/examples] to cluster element [Engine] with name [Catalina]
+30-Jan-2025 16:06:04.166 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.startInternal Starting clustering manager at [localhost#/examples]
+30-Jan-2025 16:06:04.167 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.getAllClusterSessions Manager [localhost#/examples], requesting session state from [org.apache.catalina.tribes.membership.MemberImpl[tcp://{127, 0, 0, 1}:4000,{127, 0, 0, 1},4000, alive=4011, securePort=-1, UDP Port=-1, id={53 45 45 -114 21 -80 66 -126 -76 -11 85 75 64 -38 -126 106 }, payload={}, command={}, domain={}, ]]. This operation will timeout if no session state has been received within [60] seconds.
+30-Jan-2025 16:06:04.268 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.waitForSendAllSessions Manager [localhost#/examples]; session state send at [1/30/25, 4:06 PM] received in [101] ms.
+30-Jan-2025 16:06:04.272 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/server/was1/apache-tomcat-8.5.24/webapps/examples] has finished in [215] ms
+30-Jan-2025 16:06:04.272 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/server/was1/apache-tomcat-8.5.24/webapps/host-manager]
+30-Jan-2025 16:06:04.288 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/server/was1/apache-tomcat-8.5.24/webapps/host-manager] has finished in [16] ms
+30-Jan-2025 16:06:04.288 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/server/was1/apache-tomcat-8.5.24/webapps/manager]
+30-Jan-2025 16:06:04.298 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/server/was1/apache-tomcat-8.5.24/webapps/manager] has finished in [9] ms
+30-Jan-2025 16:06:04.299 INFO [main] org.apache.catalina.ha.session.JvmRouteBinderValve.startInternal JvmRouteBinderValve started
+30-Jan-2025 16:06:04.301 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-172.26.36.102-8001"]
+30-Jan-2025 16:06:04.307 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-172.26.36.102-8011"]
+30-Jan-2025 16:06:04.370 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 2634 ms
+30-Jan-2025 19:48:09.689 WARNING [Tribes-MembershipSender[Catalina-Channel]] org.apache.catalina.tribes.membership.McastServiceImpl$SenderThread.run Unable to send mcast message.
+ java.net.SocketException: 명령을 허용하지 않음
+	at java.base/sun.nio.ch.DatagramChannelImpl.send0(Native Method)
+	at java.base/sun.nio.ch.DatagramChannelImpl.sendFromNativeBuffer(DatagramChannelImpl.java:901)
+	at java.base/sun.nio.ch.DatagramChannelImpl.send(DatagramChannelImpl.java:863)
+	at java.base/sun.nio.ch.DatagramChannelImpl.send(DatagramChannelImpl.java:821)
+	at java.base/sun.nio.ch.DatagramChannelImpl.blockingSend(DatagramChannelImpl.java:853)
+	at java.base/sun.nio.ch.DatagramSocketAdaptor.send(DatagramSocketAdaptor.java:218)
+	at java.base/java.net.DatagramSocket.send(DatagramSocket.java:664)
+	at org.apache.catalina.tribes.membership.McastServiceImpl.send(McastServiceImpl.java:515)
+	at org.apache.catalina.tribes.membership.McastServiceImpl.send(McastServiceImpl.java:492)
+	at org.apache.catalina.tribes.membership.McastServiceImpl$SenderThread.run(McastServiceImpl.java:592)
+
+30-Jan-2025 19:51:02.276 INFO [Membership-MemberExpired.] org.apache.catalina.tribes.group.interceptors.TcpFailureDetector.memberDisappeared Received memberDisappeared[org.apache.catalina.tribes.membership.MemberImpl[tcp://{127, 0, 0, 1}:4000,{127, 0, 0, 1},4000, alive=13459091, securePort=-1, UDP Port=-1, id={53 45 45 -114 21 -80 66 -126 -76 -11 85 75 64 -38 -126 106 }, payload={}, command={}, domain={}, ]] message. Will verify.
+30-Jan-2025 19:51:02.277 INFO [pool-1-thread-3] org.apache.catalina.tribes.group.interceptors.TcpFailureDetector.memberDisappeared Verification complete. Member still alive[org.apache.catalina.tribes.membership.MemberImpl[tcp://{127, 0, 0, 1}:4000,{127, 0, 0, 1},4000, alive=13459091, securePort=-1, UDP Port=-1, id={53 45 45 -114 21 -80 66 -126 -76 -11 85 75 64 -38 -126 106 }, payload={}, command={}, domain={}, ]]

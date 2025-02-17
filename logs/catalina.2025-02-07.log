@@ -1,0 +1,64 @@
+07-Feb-2025 10:53:06.287 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.5.24
+07-Feb-2025 10:53:06.293 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 27 2017 13:05:30 UTC
+07-Feb-2025 10:53:06.293 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.5.24.0
+07-Feb-2025 10:53:06.293 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+07-Feb-2025 10:53:06.293 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            3.10.0-1160.el7.x86_64
+07-Feb-2025 10:53:06.293 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+07-Feb-2025 10:53:06.293 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /server/jdk-17.0.13
+07-Feb-2025 10:53:06.293 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.13+10-LTS-268
+07-Feb-2025 10:53:06.293 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+07-Feb-2025 10:53:06.293 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /server/was1/apache-tomcat-8.5.24
+07-Feb-2025 10:53:06.293 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /server/was1/apache-tomcat-8.5.24
+07-Feb-2025 10:53:06.294 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+07-Feb-2025 10:53:06.294 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+07-Feb-2025 10:53:06.294 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/server/was1/apache-tomcat-8.5.24/conf/logging.properties
+07-Feb-2025 10:53:06.294 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+07-Feb-2025 10:53:06.294 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+07-Feb-2025 10:53:06.294 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+07-Feb-2025 10:53:06.294 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+07-Feb-2025 10:53:06.294 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/server/was1/apache-tomcat-8.5.24
+07-Feb-2025 10:53:06.294 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/server/was1/apache-tomcat-8.5.24
+07-Feb-2025 10:53:06.294 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/server/was1/apache-tomcat-8.5.24/temp
+07-Feb-2025 10:53:06.294 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib]
+07-Feb-2025 10:53:06.316 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-172.18.57.102-8001"]
+07-Feb-2025 10:53:06.328 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+07-Feb-2025 10:53:06.332 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-172.18.57.102-8011"]
+07-Feb-2025 10:53:06.333 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+07-Feb-2025 10:53:06.333 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 392 ms
+07-Feb-2025 10:53:06.364 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+07-Feb-2025 10:53:06.364 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.24
+07-Feb-2025 10:53:06.373 INFO [main] org.apache.catalina.ha.tcp.SimpleTcpCluster.startInternal Cluster is about to start
+07-Feb-2025 10:53:06.382 INFO [main] org.apache.catalina.tribes.transport.ReceiverBase.bind Receiver Server Socket bound to:[/127.0.0.1:4001]
+07-Feb-2025 10:53:06.405 INFO [main] org.apache.catalina.tribes.membership.McastServiceImpl.setupSocket Setting cluster mcast soTimeout to [500]
+07-Feb-2025 10:53:06.408 INFO [main] org.apache.catalina.tribes.membership.McastServiceImpl.waitForMembers Sleeping for [1000] milliseconds to establish cluster membership, start level:[4]
+07-Feb-2025 10:53:07.408 INFO [main] org.apache.catalina.tribes.membership.McastServiceImpl.waitForMembers Done sleeping, membership established, start level:[4]
+07-Feb-2025 10:53:07.410 INFO [main] org.apache.catalina.tribes.membership.McastServiceImpl.waitForMembers Sleeping for [1000] milliseconds to establish cluster membership, start level:[8]
+07-Feb-2025 10:53:08.410 INFO [main] org.apache.catalina.tribes.membership.McastServiceImpl.waitForMembers Done sleeping, membership established, start level:[8]
+07-Feb-2025 10:53:08.412 SEVERE [main] org.apache.catalina.ha.deploy.FarmWarDeployer.start FarmWarDeployer can only work as host cluster subelement!
+07-Feb-2025 10:53:08.419 INFO [Tribes-Task-Receiver[Catalina-Channel]-1] org.apache.catalina.tribes.io.BufferPool.getBufferPool Created a buffer pool with max size:[104857600] bytes of type: [org.apache.catalina.tribes.io.BufferPool15Impl]
+07-Feb-2025 10:53:08.425 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/server/was1/apache-tomcat-8.5.24/webapps/ROOT]
+07-Feb-2025 10:53:08.698 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+07-Feb-2025 10:53:08.717 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.startInternal Register manager [localhost#] to cluster element [Engine] with name [Catalina]
+07-Feb-2025 10:53:08.717 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.startInternal Starting clustering manager at [localhost#]
+07-Feb-2025 10:53:08.717 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.getAllClusterSessions Manager [localhost#]: skipping state transfer. No members active in cluster group.
+07-Feb-2025 10:53:08.733 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/server/was1/apache-tomcat-8.5.24/webapps/ROOT] has finished in [307] ms
+07-Feb-2025 10:53:08.733 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/server/was1/apache-tomcat-8.5.24/webapps/docs]
+07-Feb-2025 10:53:08.821 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+07-Feb-2025 10:53:08.822 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/server/was1/apache-tomcat-8.5.24/webapps/docs] has finished in [89] ms
+07-Feb-2025 10:53:08.822 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/server/was1/apache-tomcat-8.5.24/webapps/examples]
+07-Feb-2025 10:53:09.020 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+07-Feb-2025 10:53:09.035 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.startInternal Register manager [localhost#/examples] to cluster element [Engine] with name [Catalina]
+07-Feb-2025 10:53:09.035 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.startInternal Starting clustering manager at [localhost#/examples]
+07-Feb-2025 10:53:09.035 INFO [localhost-startStop-1] org.apache.catalina.ha.session.DeltaManager.getAllClusterSessions Manager [localhost#/examples]: skipping state transfer. No members active in cluster group.
+07-Feb-2025 10:53:09.038 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/server/was1/apache-tomcat-8.5.24/webapps/examples] has finished in [216] ms
+07-Feb-2025 10:53:09.038 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/server/was1/apache-tomcat-8.5.24/webapps/host-manager]
+07-Feb-2025 10:53:09.116 INFO [pool-1-thread-1] org.apache.catalina.ha.tcp.SimpleTcpCluster.memberAdded Replication member added:[org.apache.catalina.tribes.membership.MemberImpl[tcp://{127, 0, 0, 1}:4000,{127, 0, 0, 1},4000, alive=1015, securePort=-1, UDP Port=-1, id={9 -55 59 73 -93 83 71 1 -117 -92 93 -37 66 -6 -101 -80 }, payload={}, command={}, domain={}, ]]
+07-Feb-2025 10:53:09.139 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+07-Feb-2025 10:53:09.140 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/server/was1/apache-tomcat-8.5.24/webapps/host-manager] has finished in [102] ms
+07-Feb-2025 10:53:09.140 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/server/was1/apache-tomcat-8.5.24/webapps/manager]
+07-Feb-2025 10:53:09.230 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+07-Feb-2025 10:53:09.232 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/server/was1/apache-tomcat-8.5.24/webapps/manager] has finished in [92] ms
+07-Feb-2025 10:53:09.233 INFO [main] org.apache.catalina.ha.session.JvmRouteBinderValve.startInternal JvmRouteBinderValve started
+07-Feb-2025 10:53:09.235 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-172.18.57.102-8001"]
+07-Feb-2025 10:53:09.244 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-172.18.57.102-8011"]
+07-Feb-2025 10:53:09.346 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 3012 ms
