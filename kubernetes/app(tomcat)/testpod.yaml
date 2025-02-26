@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-cert-pod
+spec:
+  containers:
+  - name: test-container
+    image: busybox
+    command: [ "/bin/sh", "-c", "sleep 10000" ]
+    
+    volumeMounts:
+    - name: azure-tls-secrets
+      mountPath: "/mnt/secrets-store/azure-tls"
+      readOnly: true
+    - name: mysql-secrets
+      mountPath: "/mnt/secrets-store/mysql-secrets"
+      readOnly: true
+      
+  volumes:
+  - name: azure-tls-secrets
+    csi:
+      driver: secrets-store.csi.k8s.io
+      readOnly: true
+      volumeAttributes:
+        secretProviderClass: "azure-tls"
+
+  - name: mysql-secrets
+    csi:
+      driver: secrets-store.csi.k8s.io
+      readOnly: true
+      volumeAttributes:
+        secretProviderClass: "mysql-secrets"

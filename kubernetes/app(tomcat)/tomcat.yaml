@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat-deployment
+  labels:
+    app: tomcat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tomcat
+  template:
+    metadata:
+      labels:
+        app: tomcat
+    spec:
+      containers:
+      - name: tomcat
+        image: yonggyu.azurecr.io/my-tomcat-app:1.3
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: mysql-secrets
+          mountPath: "/mnt/secrets-store/mysql-secrets"
+          readOnly: true
+        - name: logs
+          mountPath: /usr/local/tomcat/logs 
+
+      - name: promtail-sidecar
+        image: grafana/promtail
+        args:
+        - -config.file=/etc/promtail/promtail.yaml
+        volumeMounts:
+        - name: logs
+          mountPath: /usr/local/tomcat/logs  # Tomcat 로그 디렉터리 공유
+        - name: promtail-config
+          mountPath: /etc/promtail
+      volumes:
+      - name: mysql-secrets
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: "mysql-secrets"
+      - name: logs
+        emptyDir: {}  # Tomcat과 Promtail이 같은 로그 디렉터리를 공유
+      - name: promtail-config
+        configMap:
+          name: promtail-config
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tomcat-service
+spec:
+  selector:
+    app: tomcat
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  type: ClusterIP

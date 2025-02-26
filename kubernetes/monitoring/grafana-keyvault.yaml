@@ -1,0 +1,29 @@
+apiVersion: secrets-store.csi.x-k8s.io/v1
+kind: SecretProviderClass
+metadata:
+  name: grafana-keyvault
+  namespace: monitoring
+spec:
+  provider: azure
+  secretObjects:
+    - secretName: grafana-secret
+      type: Opaque
+      data:
+        - objectName: grafana-admin-password
+          key: admin-password
+        - objectName: grafana-admin-user
+          key: admin-user
+  parameters:
+    usePodIdentity: "false"
+    useVMManagedIdentity: "true"
+    userAssignedIdentityID: "1b0de5f0-fb09-41c0-a695-d92b5a5f7bed"
+    keyvaultName: yg-aks-keyvault
+    objects: |
+      array:
+        - |
+          objectName: grafana-admin-password
+          objectType: secret
+        - |
+          objectName: grafana-admin-user
+          objectType: secret  
+    tenantId: "a7da4436-e498-4245-8b58-1e0554afa193"

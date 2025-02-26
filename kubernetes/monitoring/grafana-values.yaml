@@ -1,0 +1,612 @@
+global:
+  imageRegistry: null
+  imagePullSecrets: []
+
+rbac:
+  create: true
+  pspEnabled: false
+  pspUseAppArmor: false
+  namespaced: false
+  extraRoleRules: []
+  extraClusterRoleRules: []
+serviceAccount:
+  create: true
+  name:
+  nameTest:
+  labels: {}
+  automountServiceAccountToken: false
+
+replicas: 1
+headlessService: false
+automountServiceAccountToken: true
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPU: "60"
+  targetMemory: ""
+  behavior: {}
+
+
+podDisruptionBudget: {}
+deploymentStrategy:
+  type: RollingUpdate
+
+readinessProbe:
+  httpGet:
+    path: /api/health
+    port: 3000
+
+livenessProbe:
+  httpGet:
+    path: /api/health
+    port: 3000
+  initialDelaySeconds: 60
+  timeoutSeconds: 30
+  failureThreshold: 10
+
+image:
+  registry: docker.io
+  repository: grafana/grafana
+  tag: ""
+  sha: ""
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+
+testFramework:
+  enabled: true
+  image:
+    registry: docker.io
+    repository: bats/bats
+    tag: "v1.4.1"
+  imagePullPolicy: IfNotPresent
+  securityContext: {}
+  resources: {}
+  #  limits:
+  #    cpu: 100m
+  #    memory: 128Mi
+  #  requests:
+  #    cpu: 100m
+  #    memory: 128Mi
+
+dnsPolicy: ~
+dnsConfig: {}
+
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 472
+  runAsGroup: 472
+  fsGroup: 0
+
+containerSecurityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+    - ALL
+  seccompProfile:
+    type: RuntimeDefault
+
+createConfigmap: true
+extraConfigmapMounts: []
+extraEmptyDirMounts: []
+extraLabels: {}
+
+downloadDashboardsImage:
+  registry: docker.io
+  repository: curlimages/curl
+  tag: 8.9.1
+  sha: ""
+  pullPolicy: IfNotPresent
+
+downloadDashboards:
+  env: {}
+  envFromSecret: ""
+  resources: {}
+  securityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+    seccompProfile:
+      type: RuntimeDefault
+  envValueFrom: {}
+
+
+podPortName: grafana
+gossipPortName: gossip
+
+service:
+  enabled: true
+  type: ClusterIP
+  ipFamilyPolicy: ""
+  ipFamilies: []
+  loadBalancerIP: ""
+  loadBalancerClass: ""
+  loadBalancerSourceRanges: []
+  port: 80
+  targetPort: 3000
+    # targetPort: 4181 To be used with a proxy extraContainer
+  ## Service annotations. Can be templated.
+  annotations: {}
+  labels: {}
+  portName: service
+  # Adds the appProtocol field to the service. This allows to work with istio protocol selection. Ex: "http" or "tcp"
+  appProtocol: ""
+  sessionAffinity: ""
+
+serviceMonitor:
+  ## If true, a ServiceMonitor CR is created for a prometheus operator
+  ## https://github.com/coreos/prometheus-operator
+  ##
+  enabled: false
+  path: /metrics
+  #  namespace: monitoring  (defaults to use the namespace this chart is deployed to)
+  labels: {}
+  interval: 30s
+  scheme: http
+  tlsConfig: {}
+  scrapeTimeout: 30s
+  relabelings: []
+  metricRelabelings: []
+  basicAuth: {}
+  targetLabels: []
+
+extraExposePorts: []
+ # - name: keycloak
+ #   port: 8080
+ #   targetPort: 8080
+
+# overrides pod.spec.hostAliases in the grafana deployment's pods
+hostAliases: []
+  # - ip: "1.2.3.4"
+  #   hostnames:
+  #     - "my.host.com"
+
+ingress:
+  enabled: false
+  annotations: {}
+  labels: {}
+  path: /
+  pathType: Prefix
+
+  hosts:
+    - chart-example.local
+  extraPaths: []
+
+  tls: []
+
+
+route:
+  main:
+    enabled: false
+    apiVersion: gateway.networking.k8s.io/v1
+    kind: HTTPRoute
+    annotations: {}
+    labels: {}
+    hostnames: []
+    parentRefs: []
+    matches:
+      - path:
+          type: PathPrefix
+          value: /
+    filters: []
+    additionalRules: []
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+topologySpreadConstraints: []
+
+extraInitContainers: []
+extraContainers: ""
+
+extraContainerVolumes: []
+
+persistence:
+  enabled: true
+  storageClassName: "grafana-storageclass"
+  accessModes:
+    - ReadWriteOnce
+  size: 10Gi
+  existingClaim: "grafana-pvc"
+
+initChownData:
+  enabled: true
+  image:
+    registry: docker.io
+    repository: library/busybox
+    tag: "1.31.1"
+    sha: ""
+    pullPolicy: IfNotPresent
+
+  resources: {}
+  #  limits:
+  #    cpu: 100m
+  #    memory: 128Mi
+  #  requests:
+  #    cpu: 100m
+  #    memory: 128Mi
+  securityContext:
+    runAsNonRoot: false
+    runAsUser: 0
+    seccompProfile:
+      type: RuntimeDefault
+    capabilities:
+      add:
+        - CHOWN
+
+adminUser: wjadmin
+admin:
+  existingSecret: "grafana-secret"
+  #userKey: admin-user
+  passwordKey: admin-password
+
+env: {}
+envValueFrom: {}
+envFromSecret: ""
+envRenderSecret: {}
+envFromSecrets: []
+envFromConfigMaps: []
+enableServiceLinks: true
+extraSecretMounts: []
+
+extraVolumeMounts: 
+    - name: secrets-store
+      mountPath: "/mnt/secrets-store"
+      readOnly: true
+
+extraVolumes: 
+    - name: secrets-store
+      csi:
+        driver: secrets-store.csi.k8s.io
+        readOnly: true
+        volumeAttributes:
+          secretProviderClass: "grafana-keyvault"
+
+## Container Lifecycle Hooks. Execute a specific bash command or make an HTTP request
+lifecycleHooks: {}
+
+plugins: []
+
+datasources: {}
+
+alerting: {}
+notifiers: {}
+
+dashboardProviders: {}
+dashboards: {}
+dashboardsConfigMaps: {}
+grafana.ini:
+  paths:
+    data: /var/lib/grafana/
+    logs: /var/log/grafana
+    plugins: /var/lib/grafana/plugins
+    provisioning: /etc/grafana/provisioning
+  analytics:
+    check_for_updates: true
+  log:
+    mode: console
+  grafana_net:
+    url: https://grafana.net
+  server:
+    domain: "{{ if (and .Values.ingress.enabled .Values.ingress.hosts) }}{{ tpl (.Values.ingress.hosts | first) . }}{{ else }}''{{ end }}"
+    root_url: "%(protocol)s://%(domain)s/grafana/"
+    serve_from_sub_path: true
+ldap:
+  enabled: false
+  # `existingSecret` is a reference to an existing secret containing the ldap configuration
+  # for Grafana in a key `ldap-toml`.
+  existingSecret: ""
+  # `config` is the content of `ldap.toml` that will be stored in the created secret
+  config: ""
+shareProcessNamespace: false
+
+smtp:
+  # `existingSecret` is a reference to an existing secret containing the smtp configuration
+  # for Grafana.
+  existingSecret: ""
+  userKey: "user"
+  passwordKey: "password"
+
+## Sidecars that collect the configmaps with specified label and stores the included files them into the respective folders
+## Requires at least Grafana 5 to work and can't be used together with parameters dashboardProviders, datasources and dashboards
+sidecar:
+  image:
+    # -- The Docker registry
+    registry: quay.io
+    repository: kiwigrid/k8s-sidecar
+    tag: 1.30.0
+    sha: ""
+  imagePullPolicy: IfNotPresent
+  resources: {}
+#   limits:
+#     cpu: 100m
+#     memory: 100Mi
+#   requests:
+#     cpu: 50m
+#     memory: 50Mi
+  securityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+    seccompProfile:
+      type: RuntimeDefault
+  # skipTlsVerify Set to true to skip tls verification for kube api calls
+  # skipTlsVerify: true
+  enableUniqueFilenames: false
+  readinessProbe: {}
+  livenessProbe: {}
+  alerts:
+    enabled: false
+    # Additional environment variables for the alerts sidecar
+    env: {}
+    # Do not reprocess already processed unchanged resources on k8s API reconnect.
+    # ignoreAlreadyProcessed: true
+    # label that the configmaps with alert are marked with
+    label: grafana_alert
+    # value of label that the configmaps with alert are set to
+    labelValue: ""
+    searchNamespace: null
+    # Method to use to detect ConfigMap changes. With WATCH the sidecar will do a WATCH requests, with SLEEP it will list all ConfigMaps, then sleep for 60 seconds.
+    watchMethod: WATCH
+    # search in configmap, secret or both
+    resource: both
+
+    reloadURL: "http://localhost:3000/api/admin/provisioning/alerting/reload"
+    # Absolute path to shell script to execute after a alert got reloaded
+    script: null
+    skipReload: false
+    initAlerts: false
+    # Additional alerts sidecar volume mounts
+    extraMounts: []
+    # Sets the size limit of the alert sidecar emptyDir volume
+    sizeLimit: {}
+  dashboards:
+    enabled: false
+    # Additional environment variables for the dashboards sidecar
+    env: {}
+    envValueFrom: {}
+    SCProvider: true
+    # label that the configmaps with dashboards are marked with
+    label: grafana_dashboard
+    # value of label that the configmaps with dashboards are set to
+    labelValue: ""
+    # Log level. Can be one of: DEBUG, INFO, WARN, ERROR, CRITICAL.
+    # logLevel: INFO
+    # folder in the pod that should hold the collected dashboards (unless `defaultFolderName` is set)
+    folder: /tmp/dashboards
+    # The default folder name, it will create a subfolder under the `folder` and put dashboards in there instead
+    defaultFolderName: null
+
+    searchNamespace: null
+    # Method to use to detect ConfigMap changes. With WATCH the sidecar will do a WATCH requests, with SLEEP it will list all ConfigMaps, then sleep for 60 seconds.
+    watchMethod: WATCH
+    # search in configmap, secret or both
+    resource: both
+    # If specified, the sidecar will look for annotation with this name to create folder and put graph here.
+    # You can use this parameter together with `provider.foldersFromFilesStructure`to annotate configmaps and create folder structure.
+    folderAnnotation: null
+
+    #
+    # Endpoint to send request to reload alerts
+    reloadURL: "http://localhost:3000/api/admin/provisioning/dashboards/reload"
+    # Absolute path to shell script to execute after a configmap got reloaded
+    script: null
+    skipReload: false
+
+    provider:
+      # name of the provider, should be unique
+      name: sidecarProvider
+      # orgid as configured in grafana
+      orgid: 1
+      # folder in which the dashboards should be imported in grafana
+      folder: ''
+      # <string> folder UID. will be automatically generated if not specified
+      folderUid: ''
+      # type of the provider
+      type: file
+      # disableDelete to activate a import-only behaviour
+      disableDelete: false
+      # allow updating provisioned dashboards from the UI
+      allowUiUpdates: false
+      # allow Grafana to replicate dashboard structure from filesystem
+      foldersFromFilesStructure: false
+    # Additional dashboards sidecar volume mounts
+    extraMounts: []
+    # Sets the size limit of the dashboard sidecar emptyDir volume
+    sizeLimit: {}
+  datasources:
+    enabled: false
+    # Additional environment variables for the datasourcessidecar
+    env: {}
+
+    envValueFrom: {}
+
+    label: grafana_datasource
+    labelValue: ""
+
+    searchNamespace: null
+    # Method to use to detect ConfigMap changes. With WATCH the sidecar will do a WATCH requests, with SLEEP it will list all ConfigMaps, then sleep for 60 seconds.
+    watchMethod: WATCH
+    # search in configmap, secret or both
+    resource: both
+
+    reloadURL: "http://localhost:3000/api/admin/provisioning/datasources/reload"
+    # Absolute path to shell script to execute after a datasource got reloaded
+    script: null
+    skipReload: false
+    # This is needed if skipReload is true, to load any datasources defined at startup time.
+    # Deploy the datasources sidecar as an initContainer.
+    initDatasources: false
+    # Additional datasources sidecar volume mounts
+    extraMounts: []
+    # Sets the size limit of the datasource sidecar emptyDir volume
+    sizeLimit: {}
+  plugins:
+    enabled: false
+    # Additional environment variables for the plugins sidecar
+    env: {}
+
+    label: grafana_plugin
+    # value of label that the configmaps with plugins are set to
+    labelValue: ""
+
+    searchNamespace: null
+    # Method to use to detect ConfigMap changes. With WATCH the sidecar will do a WATCH requests, with SLEEP it will list all ConfigMaps, then sleep for 60 seconds.
+    watchMethod: WATCH
+    # search in configmap, secret or both
+    resource: both
+
+    # Endpoint to send request to reload plugins
+    reloadURL: "http://localhost:3000/api/admin/provisioning/plugins/reload"
+    # Absolute path to shell script to execute after a plugin got reloaded
+    script: null
+    skipReload: false
+    # Deploy the datasource sidecar as an initContainer in addition to a container.
+    # This is needed if skipReload is true, to load any plugins defined at startup time.
+    initPlugins: false
+    # Additional plugins sidecar volume mounts
+    extraMounts: []
+    # Sets the size limit of the plugin sidecar emptyDir volume
+    sizeLimit: {}
+  notifiers:
+    enabled: false
+    # Additional environment variables for the notifierssidecar
+    env: {}
+
+    label: grafana_notifier
+    # value of label that the configmaps with notifiers are set to
+    labelValue: ""
+
+    searchNamespace: null
+    # Method to use to detect ConfigMap changes. With WATCH the sidecar will do a WATCH requests, with SLEEP it will list all ConfigMaps, then sleep for 60 seconds.
+    watchMethod: WATCH
+    # search in configmap, secret or both
+    resource: both
+    reloadURL: "http://localhost:3000/api/admin/provisioning/notifications/reload"
+    # Absolute path to shell script to execute after a notifier got reloaded
+    script: null
+    skipReload: false
+    # Deploy the notifier sidecar as an initContainer in addition to a container.
+    # This is needed if skipReload is true, to load any notifiers defined at startup time.
+    initNotifiers: false
+    # Additional notifiers sidecar volume mounts
+    extraMounts: []
+    # Sets the size limit of the notifier sidecar emptyDir volume
+    sizeLimit: {}
+
+## Override the deployment namespace
+##
+namespaceOverride: ""
+
+## Number of old ReplicaSets to retain
+##
+revisionHistoryLimit: 10
+
+## Add a seperate remote image renderer deployment/service
+imageRenderer:
+  deploymentStrategy: {}
+  # Enable the image-renderer deployment & service
+  enabled: false
+  replicas: 1
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 5
+    targetCPU: "60"
+    targetMemory: ""
+    behavior: {}
+  # The url of remote image renderer if it is not in the same namespace with the grafana instance
+  serverURL: ""
+  # The callback url of grafana instances if it is not in the same namespace with the remote image renderer
+  renderingCallbackURL: ""
+  image:
+    # -- The Docker registry
+    registry: docker.io
+    # image-renderer Image repository
+    repository: grafana/grafana-image-renderer
+    # image-renderer Image tag
+    tag: latest
+    # image-renderer Image sha (optional)
+    sha: ""
+    # image-renderer ImagePullPolicy
+    pullPolicy: Always
+  # extra environment variables
+  env:
+    HTTP_HOST: "0.0.0.0"
+    # Fixes "Error: Failed to launch the browser process!\nchrome_crashpad_handler: --database is required"
+    XDG_CONFIG_HOME: /tmp/.chromium
+    XDG_CACHE_HOME: /tmp/.chromium
+  envValueFrom: {}
+  serviceAccountName: ""
+  automountServiceAccountToken: false
+  securityContext: {}
+  containerSecurityContext:
+    seccompProfile:
+      type: RuntimeDefault
+    capabilities:
+      drop: ['ALL']
+    allowPrivilegeEscalation: false
+    readOnlyRootFilesystem: true
+  podAnnotations: {}
+  hostAliases: []
+  priorityClassName: ''
+  service:
+    enabled: true
+    portName: 'http'
+    port: 8081
+    targetPort: 8081
+    appProtocol: ""
+  serviceMonitor:
+    enabled: false
+    path: /metrics
+    labels: {}
+    interval: 1m
+    scheme: http
+    tlsConfig: {}
+    scrapeTimeout: 30s
+    relabelings: []
+    targetLabels: []
+  grafanaProtocol: http
+  grafanaSubPath: ""
+  podPortName: http
+  revisionHistoryLimit: 10
+  networkPolicy:
+    limitIngress: true
+    limitEgress: false
+    extraIngressSelectors: []
+  resources: {}
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+  extraConfigmapMounts: []
+  extraSecretMounts: []
+  extraVolumeMounts: []
+  extraVolumes: []
+
+networkPolicy:
+  enabled: false
+  ingress: true
+  allowExternal: true
+  explicitNamespacesSelector: {}
+
+  egress:
+    enabled: false
+    blockDNSResolution: false
+    ports: []
+    to: []
+
+
+ 
+enableKubeBackwardCompatibility: false
+useStatefulSet: false
+extraObjects: []
+assertNoLeakedSecrets: true
+

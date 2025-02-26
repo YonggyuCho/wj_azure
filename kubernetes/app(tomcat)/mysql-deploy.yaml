@@ -1,0 +1,89 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  serviceName: "mysql"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:8.0
+        env:
+        - name: MYSQL_ROOT_PASSWORD_FILE
+          value: "/mnt/secrets-store/mysql-secrets/mysql-password"
+        - name: MYSQL_USER
+          value: yonggyu        
+        - name: MYSQL_PASSWORD_FILE
+          value: "/mnt/secrets-store/mysql-secrets/mysql-password"
+        - name: MYSQL_DATABASE
+          value: user_db
+        - name: MYSQL_ROOT_HOST
+          value: '%'
+        ports:
+        - containerPort: 3306
+          name: mysql
+        volumeMounts:
+        - name: mysql-storage
+          mountPath: /var/lib/mysql
+        - name: mysql-secrets
+          mountPath: "/mnt/secrets-store/mysql-secrets"
+          readOnly: true
+
+      - name: promtail-sidecar  # ✅ Promtail Sidecar 추가
+        image: grafana/promtail
+        args:
+        - -config.file=/etc/promtail/promtail.yaml
+        volumeMounts:
+        - name: mysql-storage  # ✅ 같은 볼륨을 마운트 (변경됨)
+          mountPath: "/var/lib/mysql"
+          readOnly: true
+        - name: promtail-config
+          mountPath: "/etc/promtail"
+
+      volumes:
+      - name: mysql-storage  # ✅ Promtail과 MySQL이 공유하도록 설정
+        persistentVolumeClaim:
+          claimName: mysql-pvc
+      - name: mysql-secrets
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: "mysql-secrets"
+      - name: promtail-config
+        configMap:
+          name: promtail-mysql-config  # ✅ 기존에 없던 ConfigMap 이름 수정
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pvc
+  namespace: default
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: mysql-storage-class
+
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: mysql-storage-class
+provisioner: disk.csi.azure.com
+parameters:
+  skuName: Standard_LRS 
+reclaimPolicy: Retain
+volumeBindingMode: WaitForFirstConsumer

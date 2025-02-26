@@ -1,0 +1,81 @@
+loki:
+  schemaConfig:
+    configs:
+      - from: "2025-02-19"
+        store: tsdb
+        object_store: azure
+        schema: v13
+        index:
+          prefix: loki_index_
+          period: 24h
+  limits_config:
+    allow_structured_metadata: true
+    volume_enabled: true
+  ruler:
+    enable_api: true
+  ingester:
+    chunk_encoding: snappy
+  tracing:
+    enabled: true
+  querier:
+    max_concurrent: 4
+  auth_enabled: false
+  storage:
+    type: azure
+    azure:
+      accountName: "yglogstorage"
+      useManagedIdentity: true  
+      userAssignedId: "1b0de5f0-fb09-41c0-a695-d92b5a5f7bed"
+      endpointSuffix: "blob.core.windows.net" 
+      requestTimeout: 60s  
+    bucketNames:
+      chunks: "loki-chunks" 
+      ruler: "loki-ruler"
+      admin: "loki-admin"
+chunksCache:
+  enabled: true
+  resources:
+    requests:
+      memory: 2048Mi  
+      cpu: 250m       
+    limits:
+      memory: 4096Mi  
+
+minio:
+  enabled: false
+deploymentMode: SingleBinary
+
+singleBinary:
+  replicas: 2
+  persistence:
+    storageClass: default
+    accessModes:
+      - ReadWriteOnce
+    size: 5Gi
+
+# Zero out replica counts of other deployment modes
+backend:
+  replicas: 0
+read:
+  replicas: 0
+write:
+  replicas: 0
+
+ingester:
+  replicas: 0
+querier:
+  replicas: 0
+queryFrontend:
+  replicas: 0
+queryScheduler:
+  replicas: 0
+distributor:
+  replicas: 0
+compactor:
+  replicas: 0
+indexGateway:
+  replicas: 0
+bloomCompactor:
+  replicas: 0
+bloomGateway:
+  replicas: 0

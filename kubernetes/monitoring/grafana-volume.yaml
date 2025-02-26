@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: grafana-pvc
+  namespace: monitoring
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: grafana-storageclass
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: grafana-storageclass
+provisioner: disk.csi.azure.com
+parameters:
+  skuName: Standard_LRS 
+reclaimPolicy: Retain
+volumeBindingMode: WaitForFirstConsumer
