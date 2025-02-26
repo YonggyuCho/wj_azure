@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# MySQL 환경 변수 설정
-export MYSQL_PASSWORD=${MYSQL_PASSWORD}
+# setenv.sh
+if [ -f "/mnt/secrets-store/mysql-secrets/mysql-password" ]; 
+then
+export MYSQL_PASSWORD=$(cat /mnt/secrets-store/mysql-secrets/mysql-password)
+fi
 
-# Tomcat 옵션에 MySQL 비밀번호 추가
 export CATALINA_OPTS="$CATALINA_OPTS -DMYSQL_PASSWORD=$MYSQL_PASSWORD"
